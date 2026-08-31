@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa Corporativo de Inovação com IA — Grupo HP</title>
+  <meta name="description" content="Proposta executiva em HTML para o Programa Corporativo de Inovação com IA — Grupo HP, com execução inicial na Maas e expansão possível para o SIAN e demais empresas do grupo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --muted: #a3a3a3;
+      --line: #1f1f1f;
+      --soft: #141414;
+      --soft-2: #0d0d0d;
+      --accent: #ffffff;
+      --good: #79c97a;
+      --warn: #f4b400;
+      --blue: #8eb7ff;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+      font-family: "Montserrat", -apple-system, system-ui, sans-serif;
+      line-height: 1.65; -webkit-font-smoothing: antialiased; scroll-behavior: smooth;
+    }
+    body { overflow-x: hidden; }
+    a { color: inherit; }
+    .layout { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 56px; max-width: 1380px; margin: 0 auto; padding: 0 28px; }
+    .sidebar { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: 28px 16px 28px 0; border-right: 1px solid var(--line); font-size: .88rem; }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--line); }
+    .brand-mini { display: flex; align-items: center; gap: 10px; padding-bottom: 18px; margin-bottom: 16px; border-bottom: 1px solid var(--line); font-weight: 700; letter-spacing: .04em; font-size: .78rem; text-transform: uppercase; }
+    .brand-mini img { width: 28px; height: 28px; border-radius: 6px; }
+    .toc { list-style: none; padding: 0; margin: 0; }
+    .toc li { padding: 2px 0; }
+    .toc a { display: block; padding: 8px 12px; color: var(--muted); text-decoration: none; border-left: 2px solid transparent; border-radius: 0 2px 2px 0; transition: all .15s ease; }
+    .toc a:hover, .toc a.active { color: var(--fg); background: var(--soft); border-left-color: var(--fg); }
+    .mobile-nav { display: none; position: sticky; top: 0; z-index: 30; margin: 0 -28px; padding: 12px 16px; background: rgba(0,0,0,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); overflow-x: auto; white-space: nowrap; }
+    .mobile-nav a { display: inline-block; color: var(--muted); text-decoration: none; border: 1px solid var(--line); background: var(--soft-2); padding: 8px 12px; border-radius: 999px; font-size: .78rem; margin-right: 8px; }
+    .mobile-nav a.active { color: var(--fg); border-color: var(--fg); }
+    .main { min-width: 0; }
+    section { padding: 72px 0; border-top: 1px solid var(--line); scroll-margin-top: 72px; }
+    section:first-of-type { border-top: none; padding-top: 44px; }
+    h1, h2, h3, h4 { margin: 0 0 22px; line-height: 1.14; letter-spacing: -.02em; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    h3 { font-size: 1.2rem; }
+    h4 { font-size: .96rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    p { margin: 0 0 16px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .74rem; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+    .cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 60px 0 36px; }
+    .top { display: flex; align-items: center; gap: 16px; }
+    .logo { width: 58px; height: 58px; border-radius: 8px; background: #fff; }
+    .brand { font-weight: 700; letter-spacing: .04em; }
+    .brand small { display: block; color: var(--muted); font-weight: 400; letter-spacing: 0; font-size: .8rem; }
+    .subtitle { color: var(--muted); font-size: 1.08rem; max-width: 980px; }
+    .tese { margin-top: 36px; padding: 26px 30px; background: var(--soft); border-left: 3px solid var(--fg); font-size: 1.05rem; font-weight: 500; max-width: 1020px; }
+    .meta, .tiles, .grid2, .grid3, .roadmap, .cards { display: grid; gap: 14px; }
+    .meta { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 42px; }
+    .tiles { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-top: 28px; }
+    .grid2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .grid3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .roadmap { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 22px; }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card, .tile, .meta .card, .step { background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: 22px; }
+    .tile .k { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-size: .68rem; margin-bottom: 8px; }
+    .tile .v { font-size: 1.52rem; font-weight: 800; letter-spacing: -.02em; }
+    .tile .f { color: var(--muted); font-size: .88rem; margin-top: 8px; }
+    .meta b { display: block; margin-bottom: 6px; }
+    .meta span { color: var(--muted); font-size: .9rem; }
+    .callout { padding: 18px 22px; background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--fg); border-radius: 0 4px 4px 0; margin: 18px 0; }
+    .callout.warn { border-left-color: var(--warn); }
+    .callout.good { border-left-color: var(--good); }
+    .callout.blue { border-left-color: var(--blue); }
+    ul.clean { list-style: none; padding: 0; margin: 0; }
+    ul.clean li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    ul.clean li:last-child { border-bottom: none; }
+    ul.clean li::before { content: "▸"; font-weight: 700; flex-shrink: 0; }
+    ul.clean li > span { min-width: 0; display: block; }
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+    .badge.good { border-color: var(--good); color: var(--good); }
+    .badge.warn { border-color: var(--warn); color: var(--warn); }
+    .badge.blue { border-color: var(--blue); color: var(--blue); }
+    .flow { display: grid; gap: 12px; margin-top: 22px; }
+    .flow .node { display: grid; grid-template-columns: 54px minmax(0,1fr); gap: 16px; padding: 18px 20px; background: var(--soft); border: 1px solid var(--line); border-radius: 4px; align-items: start; }
+    .flow .idx { width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--fg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .84rem; }
+    .profile { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 26px; align-items: start; }
+    .profile img { width: 100%; border-radius: 8px; border: 1px solid var(--line); display: block; }
+    .profile-links a { color: var(--muted); text-decoration: none; display: inline-block; margin-right: 14px; margin-bottom: 8px; border-bottom: 1px solid var(--muted); }
+    .profile-links a:hover { color: var(--fg); border-bottom-color: var(--fg); }
+    footer { padding: 54px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 0 18px; }
+      .sidebar { display: none; }
+      .mobile-nav { display: block; }
+      .meta { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .profile { grid-template-columns: 1fr; }
+      .profile img { max-width: 420px; }
+      section { padding: 56px 0; }
+      .cover { min-height: auto; padding-top: 34px; }
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 2.2rem; }
+      .meta { grid-template-columns: 1fr; }
+      .tese { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand-mini">
+      <img src="assets/logo-paulo-jardim.png" alt="Logo Paulo Jardim">
+      <span>Grupo HP · Proposta V1</span>
+    </div>
+    <ol class="toc" id="toc">
+      <li><a href="#sec-cover">00 · Capa</a></li>
+      <li><a href="#sec-contexto">01 · Contexto</a></li>
+      <li><a href="#sec-tese">02 · Tese do programa</a></li>
+      <li><a href="#sec-trilhas">03 · Trilhas</a></li>
+      <li><a href="#sec-oportunidades">04 · Oportunidades</a></li>
+      <li><a href="#sec-case">05 · Referência prática</a></li>
+      <li><a href="#sec-resultados">06 · Resultados esperados</a></li>
+      <li><a href="#sec-formato">07 · Formato e premissas</a></li>
+      <li><a href="#sec-opcional">08 · Continuidade opcional</a></li>
+      <li><a href="#sec-consultor">09 · Paulo Jardim</a></li>
+      <li><a href="#sec-passos">10 · Próximos passos</a></li>
+    </ol>
+  </aside>
+
+  <main class="main">
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#sec-cover">Capa</a>
+      <a href="#sec-contexto">Contexto</a>
+      <a href="#sec-trilhas">Trilhas</a>
+      <a href="#sec-oportunidades">Oportunidades</a>
+      <a href="#sec-consultor">Paulo</a>
+      <a href="#sec-passos">Próximos passos</a>
+    </nav>
+
+    <section id="sec-cover" class="cover">
+      <div class="top">
+        <img class="logo" src="assets/logo-paulo-jardim.png" alt="Logo Paulo Jardim">
+        <div class="brand">PAULO JARDIM<small>SeuTimeIA · proposta executiva para Grupo HP</small></div>
+      </div>
+      <div>
+        <div class="eyebrow">Programa corporativo de inovação com IA</div>
+        <h1>Grupo HP</h1>
+        <p class="subtitle">Execução inicial recomendada na Maas, com desenho compatível para expansão ao SIAN e a outras empresas do grupo que compartilham desafios de operação, liderança e inteligência.</p>
+        <div class="tese">Não é um treinamento de ferramenta. É uma jornada estruturada para elevar maturidade, gerar iniciativas aplicáveis e formar massa crítica interna em torno da IA.</div>
+      </div>
+      <div class="meta">
+        <div class="card"><b>Origem</b><span>Mentoria individual com Márcio Palmerston, visita presencial à operação da Maas e alinhamentos com RH e TI.</span></div>
+        <div class="card"><b>Recorte inicial</b><span>Maas como ponto de entrada com lógica corporativa desde o desenho.</span></div>
+        <div class="card"><b>Públicos</b><span>Operação, liderança e núcleo avançado com SIAN, TI, dados e embaixadores.</span></div>
+        <div class="card"><b>Saída desejada</b><span>Maturidade, pipeline de iniciativas e base para desdobramentos de 2027.</span></div>
+      </div>
+    </section>
+
+    <section id="sec-contexto">
+      <div class="eyebrow">01 · Contexto</div>
+      <h2>De onde esta proposta nasce</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Base real, não genérica</h3>
+          <p>Esta proposta parte de uma leitura construída em campo: mentoria executiva com o diretor da Maas, entendimento da rotina operacional, visita presencial e conversas com RH e TI.</p>
+          <p>Isso reduz ruído. O desenho nasce de problemas concretos, não de uma apresentação padrão sobre IA.</p>
+        </div>
+        <div class="card">
+          <h3>Por que Grupo HP</h3>
+          <p>A recomendação é posicionar o esforço como <b>programa corporativo</b>, com execução inicial na Maas, mas já estruturado para diálogo com o SIAN e expansão futura para outras empresas do grupo.</p>
+          <p>Isso preserva ambição sem forçar escopo prematuro.</p>
+        </div>
+      </div>
+      <div class="tiles">
+        <div class="tile"><div class="k">Ambiente</div><div class="v">Maas</div><div class="f">Operação com escala e realidade rica para casos de uso aplicados.</div></div>
+        <div class="tile"><div class="k">Conexão corporativa</div><div class="v">SIAN</div><div class="f">Ponte com TI, RHBP, CSC e viabilização de trilhas avançadas.</div></div>
+        <div class="tile"><div class="k">Lógica de programa</div><div class="v">3 trilhas</div><div class="f">Essencial, Liderança e Agentes, com profundidade adequada por perfil.</div></div>
+        <div class="tile"><div class="k">Critério</div><div class="v">Aplicação</div><div class="f">Aderência operacional e geração de iniciativas, não show de ferramenta.</div></div>
+      </div>
+    </section>
+
+    <section id="sec-tese">
+      <div class="eyebrow">02 · Tese do programa</div>
+      <h2>O que o programa busca produzir</h2>
+      <div class="callout blue">O objetivo central é transformar interesse difuso em capacidade interna: entendimento prático, aplicação orientada à rotina, identificação de embaixadores e geração de backlog de oportunidades.</div>
+      <ul class="clean">
+        <li><span><b>Maturidade:</b> mudar a forma como a organização enxerga IA no trabalho.</span></li>
+        <li><span><b>Adoção:</b> aproximar a IA do contexto real das pessoas e das áreas.</span></li>
+        <li><span><b>Aplicação:</b> converter discussões em casos de uso e iniciativas rastreáveis.</span></li>
+        <li><span><b>Desdobramento:</b> deixar base pronta para acompanhamento, implantação e priorização futura.</span></li>
+      </ul>
+    </section>
+
+    <section id="sec-trilhas">
+      <div class="eyebrow">03 · Trilhas</div>
+      <h2>Estrutura recomendada para públicos diferentes</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="badge good">Trilha 1</span>
+          <h3>SeuTimeIA Essencial · Tático-operacional</h3>
+          <p><b>Público:</b> analistas, supervisores, assistentes, apoio e equipes operacionais.</p>
+          <p><b>Capacidade sugerida:</b> até 40–50 pessoas por turma.</p>
+          <ul class="clean">
+            <li><span>Visão prática de IA aplicada ao dia a dia.</span></li>
+            <li><span>Prompts, repertório e exercícios em equipe.</span></li>
+            <li><span>Identificação de oportunidades por área.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge blue">Trilha 2</span>
+          <h3>SeuTimeIA Liderança · Gestão e decisão</h3>
+          <p><b>Público:</b> supervisores, coordenadores, gerentes, diretoria e lideranças.</p>
+          <p><b>Capacidade sugerida:</b> até 40–50 pessoas por turma.</p>
+          <ul class="clean">
+            <li><span>IA como apoio à gestão, priorização e comunicação de mudança.</span></li>
+            <li><span>Leitura executiva de oportunidades e patrocínio interno.</span></li>
+            <li><span>Alinhamento entre discurso de inovação e execução prática.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge warn">Trilha 3</span>
+          <h3>SeuTimeIA Agentes · Núcleo avançado</h3>
+          <p><b>Público:</b> SIAN, TI, Central de Inteligência, BI/dados e embaixadores.</p>
+          <p><b>Capacidade sugerida:</b> ideal 20 pessoas; limite operacional até 30.</p>
+          <ul class="clean">
+            <li><span>Fundamentos de agentes e bases de conhecimento.</span></li>
+            <li><span>Uso do Hermes como ambiente de estudo e prática.</span></li>
+            <li><span>Ponte entre oportunidade de negócio e viabilidade técnica.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">A separação de trilhas evita o erro clássico: conteúdo raso para quem decide e complexo demais para quem ainda está formando repertório.</div>
+    </section>
+
+    <section id="sec-oportunidades">
+      <div class="eyebrow">04 · Oportunidades</div>
+      <h2>O que já apareceu como potencial a partir da mentoria e da visita</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Liderança e apoio executivo</h3>
+          <ul class="clean">
+            <li><span>Conselheiro de IA para apoio ao diretor e lideranças.</span></li>
+            <li><span>Leitura crítica de documentos, reuniões e decisões.</span></li>
+            <li><span>Organização de bases de conhecimento executivas.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Operação e rotinas internas</h3>
+          <ul class="clean">
+            <li><span>Assistentes para consultas recorrentes e padronização.</span></li>
+            <li><span>Redução de retrabalho em processos repetitivos.</span></li>
+            <li><span>Apoio a áreas com alto volume de orientação interna.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Editais, documentos e triagens</h3>
+          <ul class="clean">
+            <li><span>Leitura prévia e estruturação de informações-chave.</span></li>
+            <li><span>Triagem de oportunidades e critérios críticos.</span></li>
+            <li><span>Aceleração da análise antes da etapa manual pesada.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>RH, comunicação e inteligência</h3>
+          <ul class="clean">
+            <li><span>Dúvidas recorrentes apoiadas por assistentes internos.</span></li>
+            <li><span>Políticas, procedimentos e orientações em linguagem acessível.</span></li>
+            <li><span>Sumarização e interpretação de informações para BI e Central de Inteligência.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-case">
+      <div class="eyebrow">05 · Referência prática</div>
+      <h2>O que o case Grupo Marajó prova</h2>
+      <div class="callout good">Quando a jornada é bem desenhada, a empresa para de tratar IA como curiosidade e passa a gerar pipeline de oportunidades reais.</div>
+      <div class="tiles">
+        <div class="tile"><div class="k">Estrutura</div><div class="v">2 etapas</div><div class="f">Encontros com espaço de maturação e retorno entre eles.</div></div>
+        <div class="tile"><div class="k">Efeito</div><div class="v">Quase 200 ideias</div><div class="f">Captação de iniciativas em cerca de 30 dias após a mobilização.</div></div>
+        <div class="tile"><div class="k">Aprendizado</div><div class="v">Públicos separados</div><div class="f">Mais aderência, mais profundidade e melhor conversão em ação.</div></div>
+        <div class="tile"><div class="k">Leitura estratégica</div><div class="v">Capacidade interna</div><div class="f">Valor não é conteúdo; é construção de massa crítica e backlog.</div></div>
+      </div>
+    </section>
+
+    <section id="sec-resultados">
+      <div class="eyebrow">06 · Resultados esperados</div>
+      <h2>Como o impacto deve ser lido</h2>
+      <div class="flow">
+        <div class="node"><div class="idx">1</div><div><h3>Maturidade e adesão</h3><p>Mais repertório prático, menos medo e maior clareza sobre onde a IA gera valor real.</p></div></div>
+        <div class="node"><div class="idx">2</div><div><h3>Aplicação por área</h3><p>Casos de uso identificados, assistentes iniciais desenhados e participantes com destaque.</p></div></div>
+        <div class="node"><div class="idx">3</div><div><h3>Geração de iniciativas</h3><p>Pesquisa, cadastro de ideias e backlog inicial de oportunidades após os workshops.</p></div></div>
+        <div class="node"><div class="idx">4</div><div><h3>Base para 2027</h3><p>Material para priorização entre RH, liderança, TI e SIAN, inclusive para governança, acompanhamento ou formação de time.</p></div></div>
+      </div>
+    </section>
+
+    <section id="sec-formato">
+      <div class="eyebrow">07 · Formato e premissas</div>
+      <h2>Como a jornada pode ser estruturada</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Formato-base</h3>
+          <ul class="clean">
+            <li><span>Duas etapas presenciais de 4 horas por trilha.</span></li>
+            <li><span>Intervalo aproximado de 15 dias entre etapas.</span></li>
+            <li><span>Alinhamento pré e pós-etapa para calibragem fina.</span></li>
+            <li><span>Pesquisa diagnóstica e leitura de NPS por etapa.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Premissas de execução</h3>
+          <ul class="clean">
+            <li><span>Definição de público e volumetria por trilha.</span></li>
+            <li><span>Infraestrutura validada pela empresa.</span></li>
+            <li><span>Notebooks, conectividade e ambiente mínimo para prática.</span></li>
+            <li><span>Alinhamento com TI/SIAN sobre Hermes e restrições da trilha avançada.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout warn">Local e infraestrutura não são o centro da proposta, mas precisam estar resolvidos. IPOG e Hub Cerrado são referências possíveis; a escolha final deve seguir a viabilidade da empresa.</div>
+    </section>
+
+    <section id="sec-opcional">
+      <div class="eyebrow">08 · Continuidade opcional</div>
+      <h2>O que pode vir depois, se fizer sentido</h2>
+      <p>O programa pode prever uma camada opcional de acompanhamento posterior, condicionada à aderência, ao NPS das etapas e à qualidade das iniciativas geradas.</p>
+      <div class="roadmap">
+        <div class="step"><div class="badge">Acompanhamento</div><h3>Projetos priorizados</h3><p>Apoio à evolução dos casos mais promissores.</p></div>
+        <div class="step"><div class="badge">Governança</div><h3>Ritos e fóruns</h3><p>Suporte a discussões entre negócio, RH, TI e operação.</p></div>
+        <div class="step"><div class="badge">Time interno</div><h3>Embaixadores e núcleo</h3><p>Estruturação de grupo interno, mentoring e desenvolvimento.</p></div>
+        <div class="step"><div class="badge">Planejamento</div><h3>Visão 2027</h3><p>Conexão com priorização estratégica, contratação ou evolução de stack.</p></div>
+      </div>
+    </section>
+
+    <section id="sec-consultor">
+      <div class="eyebrow">09 · Paulo Jardim</div>
+      <h2>Autoridade executiva com leitura prática de operação e IA</h2>
+      <div class="profile">
+        <div>
+          <img src="assets/paulo-jardim-portrait.png" alt="Paulo Jardim">
+          <div class="profile-links" style="margin-top:14px;">
+            <a href="https://br.linkedin.com/in/paulojardim" target="_blank" rel="noopener">LinkedIn Paulo Jardim</a>
+            <a href="https://github.com/paulojardimf" target="_blank" rel="noopener">GitHub @paulojardimf</a>
+          </div>
+        </div>
+        <div>
+          <p>A condução é feita por <b>Paulo Jardim</b>, com uma combinação rara de experiência executiva, visão de negócio e profundidade prática no uso aplicado da IA.</p>
+          <div class="cards" style="margin-top:22px;">
+            <div class="card"><h3>Experiência em grandes grupos</h3><p>Trajetória em ambientes de escala, processos complexos e excelência operacional, com passagem por grupos como <b>Ambev, Unilever e Votorantim Cimentos</b>.</p></div>
+            <div class="card"><h3>Gestão de negócios e finanças</h3><p>Base sólida em gestão, reestruturação e leitura executiva, com repertório para dialogar com liderança, operação e áreas corporativas.</p></div>
+            <div class="card"><h3>Inovação aplicada</h3><p>Criador da metodologia <b>SeuTimeIA</b> e hoje focado em programas de maturidade operacional com IA e advisory prático em <b>startups e IA aplicada à construção civil</b>.</p></div>
+            <div class="card"><h3>Abordagem</h3><p>Menos demonstração vazia, mais clareza, aplicação e construção de capacidade interna com linguagem acessível para públicos heterogêneos.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-passos">
+      <div class="eyebrow">10 · Próximos passos</div>
+      <h2>O que precisa ser validado para fechar a V2</h2>
+      <ul class="clean">
+        <li><span>Escopo inicial da execução: Maas e critérios de expansão para o Grupo HP.</span></li>
+        <li><span>Públicos e volumetria final por trilha.</span></li>
+        <li><span>Condições técnicas e ambiente do Hermes para a trilha de agentes.</span></li>
+        <li><span>Agenda provável, local e premissas operacionais.</span></li>
+        <li><span>Critérios de leitura dos resultados após as etapas.</span></li>
+      </ul>
+      <div class="callout">Esta V1 em HTML serve como base compartilhável para revisão de narrativa, identidade visual, escopo e nível de detalhe antes da versão final.</div>
+    </section>
+
+    <footer>
+      <p>Programa Corporativo de Inovação com IA — Grupo HP · versão HTML V1 para validação</p>
+    </footer>
+  </main>
+</div>
+<script>
+  const links = [...document.querySelectorAll('#toc a, #mobile-nav a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const setActive = () => {
+    let current = sections[0];
+    for (const sec of sections) {
+      if (sec.getBoundingClientRect().top <= 120) current = sec;
+    }
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  };
+  document.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+</script>
+</body>
+</html>
