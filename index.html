@@ -70,7 +70,7 @@
     .roadmap { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 22px; }
     .cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
     .stats { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 20px; }
-    .agent-layout { grid-template-columns: 1.2fr .9fr; align-items: start; }
+    .agent-layout { grid-template-columns: 1fr; align-items: start; max-width: 980px; }
     .authority-layout { grid-template-columns: 1.1fr 1fr; align-items: start; }
     .card, .tile, .meta .card, .step, .stat { background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: 22px; }
     .tile .k, .stat .k { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-size: .68rem; margin-bottom: 8px; }
@@ -228,7 +228,7 @@
           <span class="badge good">Trilha 1</span>
           <h3>SeuTimeIA Essencial · Tático-operacional</h3>
           <p><b>Público:</b> analistas, supervisores, assistentes, apoio e equipes operacionais.</p>
-          <p><b>Capacidade sugerida:</b> até 40–50 pessoas por turma.</p>
+          <p><b>Quantidade sugerida de participantes:</b> até 40–50 pessoas por turma.</p>
           <ul class="clean">
             <li><span>Uso prático de IA no dia a dia.</span></li>
             <li><span>Prompts, repertório e exercícios em equipe.</span></li>
@@ -240,7 +240,7 @@
           <span class="badge blue">Trilha 2</span>
           <h3>SeuTimeIA Liderança · Gestão e decisão</h3>
           <p><b>Público:</b> supervisores, coordenadores, gerentes, diretoria e lideranças.</p>
-          <p><b>Capacidade sugerida:</b> até 40–50 pessoas por turma.</p>
+          <p><b>Quantidade sugerida de participantes:</b> até 40–50 pessoas por turma.</p>
           <ul class="clean">
             <li><span>IA como apoio à gestão, à priorização e à comunicação de mudança.</span></li>
             <li><span>Leitura executiva de oportunidades e patrocínio interno.</span></li>
@@ -252,7 +252,7 @@
           <span class="badge warn">Trilha 3</span>
           <h3>SeuTimeIA Agentes · Núcleo avançado</h3>
           <p><b>Público:</b> SIAN, TI, Central de Inteligência, BI/dados e embaixadores identificados nas etapas anteriores.</p>
-          <p><b>Capacidade sugerida:</b> ideal 20 pessoas; limite operacional até 30.</p>
+          <p><b>Quantidade sugerida de participantes:</b> ideal 20 pessoas; limite operacional até 30.</p>
           <ul class="clean">
             <li><span>Fundamentos de agentes e orquestração prática.</span></li>
             <li><span>Bases de conhecimento, canais e contexto organizacional.</span></li>
@@ -272,22 +272,19 @@
           <p>Na trilha avançada, o objetivo não é apenas mostrar conceitos. É conduzir um grupo mais preparado na direção de uma aplicação prática, com linguagem acessível e base técnica suficiente para abrir desdobramentos reais.</p>
           <div class="stats">
             <div class="stat"><div class="k">Ambiente-base</div><div class="v">Hermes Agent</div><div class="f">Conhecendo o ambiente, a lógica de uso e os fluxos de estudo prático.</div></div>
-            <div class="stat"><div class="k">Integrações</div><div class="v">EMS + sistemas</div><div class="f">Primeiras conexões com sistemas de gestão e contextos já existentes.</div></div>
+            <div class="stat"><div class="k">Integrações</div><div class="v">APIs + sistemas</div><div class="f">Integração com sistemas com API aberta e com sistemas internos da empresa.</div></div>
             <div class="stat"><div class="k">Conhecimento</div><div class="v">2º cérebro IA</div><div class="f">Estruturação de base em GitHub para contexto, procedimentos e replicação.</div></div>
-            <div class="stat"><div class="k">Infra</div><div class="v">VPS e servidor</div><div class="f">Fundamentos de ambiente, segurança, canais de comunicação e operação.</div></div>
+            <div class="stat"><div class="k">Infra</div><div class="v">VPS + Teams</div><div class="f">Ambiente, segurança, operação e canal interno em alinhamento com TI do SIAN.</div></div>
           </div>
-          <div class="callout warn">A expectativa é que parte dessa base já possa ser estruturada em alinhamento com o SIAN, criando um ambiente mais favorável para estudo, prática e continuidade.</div>
+          <div class="callout warn">Ambiente, acessos, permissões e governança podem ser estruturados em conjunto com o TI do SIAN, criando base mais segura para prática, continuidade e futuras integrações.</div>
           <ul class="clean">
             <li><span>Conhecendo o Hermes Agent como ambiente principal de trabalho.</span></li>
-            <li><span>As primeiras integrações com EMS e outros sistemas de gestão.</span></li>
+            <li><span>Diferença entre agente pessoal, agente corporativo e aplicações por perfil.</span></li>
+            <li><span>Primeiras integrações com sistemas com API aberta e sistemas internos.</span></li>
             <li><span>Criação do segundo cérebro de IA com base versionada em GitHub.</span></li>
             <li><span>Cuidados com segurança, permissões e governança básica.</span></li>
-            <li><span>Infraestrutura mínima: VPS, servidor e canais de comunicação.</span></li>
+            <li><span>Infraestrutura mínima: VPS, servidor, Teams e rotina operacional em alinhamento com TI.</span></li>
           </ul>
-        </div>
-        <div class="agent-shot">
-          <img src="assets/workshop-seutimeia-agentes.png" alt="Referência visual do workshop SeuTimeIA Agentes">
-          <div class="cap">Referência visual da trilha SeuTimeIA Agentes: aplicação prática, ambiente, integrações e continuidade.</div>
         </div>
       </div>
     </section>
@@ -328,7 +325,7 @@
       <h2>O que a experiência no Grupo Marajó ajuda a demonstrar</h2>
       <div class="callout good">Quando a jornada é bem conduzida, a empresa deixa de tratar IA como curiosidade e passa a gerar capacidade interna, linguagem comum e pipeline de oportunidades reais.</div>
       <div class="tiles">
-        <div class="tile"><div class="k">Estrutura</div><div class="v">2 etapas</div><div class="f">Encontros com espaço de maturação, retorno e calibragem.</div></div>
+        <div class="tile"><div class="k">Estrutura</div><div class="v">2 etapas distintas</div><div class="f">Uma com time tático-operacional e outra com time de liderança, reforçando públicos separados.</div></div>
         <div class="tile"><div class="k">Mobilização</div><div class="v">+ de 30 dias</div><div class="f">Tempo suficiente para conversão do workshop em discussão interna aplicada.</div></div>
         <div class="tile"><div class="k">Resultado</div><div class="v">~200 ideias</div><div class="f">Volume relevante de iniciativas captadas após o trabalho conduzido.</div></div>
         <div class="tile"><div class="k">Aprendizado</div><div class="v">Públicos separados</div><div class="f">Mais aderência, mais profundidade e melhor conversão em ação.</div></div>
@@ -341,8 +338,8 @@
       <div class="authority-layout">
         <div>
           <div class="photo-card">
-            <img src="assets/paulo-jardim-photo-strip.webp" alt="Paulo Jardim em palestras e workshops">
-            <div class="cap">Paulo Jardim em contextos de apresentação, formação executiva e workshops aplicados.</div>
+            <img src="assets/imersoes-seutimeia-collage.png" alt="Exemplos de imersões presenciais conduzidas por Paulo Jardim">
+            <div class="cap">Exemplos de imersões presenciais conduzidas por Paulo Jardim em diferentes contextos empresariais.</div>
           </div>
           <div class="profile-links" style="margin-top:14px;">
             <a href="https://br.linkedin.com/in/paulojardim" target="_blank" rel="noopener">LinkedIn Paulo Jardim</a>
@@ -365,10 +362,11 @@
       <h2>O que precisa ser definido para avançar com o programa</h2>
       <div class="flow">
         <div class="node"><div class="idx">1</div><div><h3>Escopo inicial de execução</h3><p>Definir o recorte inicial na Maas e os critérios para eventual expansão futura ao Grupo HP.</p></div></div>
-        <div class="node"><div class="idx">2</div><div><h3>Públicos e volumetria</h3><p>Fechar os perfis participantes e a composição final das turmas por trilha.</p></div></div>
-        <div class="node"><div class="idx">3</div><div><h3>Condições técnicas</h3><p>Validar ambiente, acessos e premissas de uso para a trilha de agentes com RH, TI e SIAN.</p></div></div>
-        <div class="node"><div class="idx">4</div><div><h3>Agenda e infraestrutura</h3><p>Definir janela provável de execução, formato e condições operacionais para as etapas presenciais.</p></div></div>
-        <div class="node"><div class="idx">5</div><div><h3>Critérios de leitura</h3><p>Alinhar como serão lidos NPS, aderência, iniciativas geradas e possibilidades de continuidade.</p></div></div>
+        <div class="node"><div class="idx">2</div><div><h3>Públicos e quantidade de participantes</h3><p>Fechar os perfis participantes e a composição final das turmas por trilha, com quantidade de pessoas adequada a cada etapa.</p></div></div>
+        <div class="node"><div class="idx">3</div><div><h3>Condições técnicas</h3><p>Validar ambiente, acessos, permissões e premissas de uso com RH, TI e SIAN para sustentar a jornada como um todo.</p></div></div>
+        <div class="node"><div class="idx">4</div><div><h3>Agenda e infraestrutura</h3><p>Definir janela provável de execução, formato, local e condições operacionais para as etapas presenciais — com preferência, se possível, por ambiente fora da rotina normal de trabalho, como IPOG ou Hub Cerrado.</p></div></div>
+        <div class="node"><div class="idx">5</div><div><h3>Condições comerciais e escopo inicial</h3><p>Alinhar investimento, modelo contratual, recorte inicial da execução e critérios para eventuais desdobramentos posteriores.</p></div></div>
+        <div class="node"><div class="idx">6</div><div><h3>Critérios de leitura</h3><p>Alinhar como serão lidos NPS, aderência, iniciativas geradas e possibilidades de continuidade.</p></div></div>
       </div>
     </section>
 
