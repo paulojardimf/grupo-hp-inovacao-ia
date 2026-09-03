@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta Comercial de Investimento — Programa Corporativo de Inovação com IA | Maas</title>
+  <meta name="description" content="Proposta comercial de investimento do Programa Corporativo de Inovação com IA para a Maas, com vínculo à proposta estratégica do Grupo HP.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --muted: #a3a3a3;
+      --line: #1f1f1f;
+      --soft: #141414;
+      --soft-2: #0d0d0d;
+      --good: #79c97a;
+      --warn: #f4b400;
+      --blue: #8eb7ff;
+      --gold: #ffd84d;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+      font-family: "Montserrat", -apple-system, system-ui, sans-serif;
+      line-height: 1.65; -webkit-font-smoothing: antialiased; scroll-behavior: smooth;
+    }
+    body { overflow-x: hidden; }
+    a { color: inherit; }
+    .layout { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 56px; max-width: 1400px; margin: 0 auto; padding: 0 28px; }
+    .sidebar { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: 28px 16px 28px 0; border-right: 1px solid var(--line); font-size: .88rem; }
+    .brand-mini { display: flex; align-items: center; gap: 10px; padding-bottom: 18px; margin-bottom: 16px; border-bottom: 1px solid var(--line); font-weight: 700; letter-spacing: .04em; font-size: .78rem; text-transform: uppercase; }
+    .brand-mini img { width: 28px; height: 28px; border-radius: 6px; }
+    .toc { list-style: none; padding: 0; margin: 0; }
+    .toc li { padding: 2px 0; }
+    .toc a { display: block; padding: 8px 12px; color: var(--muted); text-decoration: none; border-left: 2px solid transparent; border-radius: 0 2px 2px 0; transition: all .15s ease; }
+    .toc a:hover, .toc a.active { color: var(--fg); background: var(--soft); border-left-color: var(--fg); }
+    .mobile-nav { display: none; position: sticky; top: 0; z-index: 30; margin: 0 -28px; padding: 12px 16px; background: rgba(0,0,0,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); overflow-x: auto; white-space: nowrap; }
+    .mobile-nav a { display: inline-block; color: var(--muted); text-decoration: none; border: 1px solid var(--line); background: var(--soft-2); padding: 8px 12px; border-radius: 999px; font-size: .78rem; margin-right: 8px; }
+    .mobile-nav a.active { color: var(--fg); border-color: var(--fg); }
+    .main { min-width: 0; }
+    section { padding: 74px 0; border-top: 1px solid var(--line); scroll-margin-top: 72px; }
+    section:first-of-type { border-top: none; padding-top: 44px; }
+    h1, h2, h3, h4 { margin: 0 0 22px; line-height: 1.12; letter-spacing: -.02em; }
+    h1 { font-size: clamp(2.6rem, 5vw, 4.6rem); max-width: 980px; }
+    h2 { font-size: clamp(1.9rem, 3vw, 2.7rem); }
+    h3 { font-size: 1.18rem; }
+    h4 { font-size: .96rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    p { margin: 0 0 16px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .74rem; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+    .cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 60px 0 42px; }
+    .top { display: flex; align-items: center; gap: 16px; }
+    .logo { width: 58px; height: 58px; border-radius: 8px; background: #fff; }
+    .brand { font-weight: 700; letter-spacing: .04em; }
+    .brand small { display: block; color: var(--muted); font-weight: 400; letter-spacing: 0; font-size: .8rem; text-transform: uppercase; }
+    .title-lockup { max-width: 1080px; }
+    .program-title { font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1.02; margin-bottom: 10px; }
+    .client-name { font-size: clamp(1.5rem, 2.2vw, 2rem); color: var(--muted); font-weight: 600; margin-bottom: 24px; }
+    .subtitle { color: var(--muted); font-size: 1.1rem; max-width: 980px; }
+    .meta, .tiles, .grid2, .grid3, .cards, .stats { display: grid; gap: 14px; }
+    .meta { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 48px; }
+    .tiles { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-top: 28px; }
+    .grid2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .grid3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .stats { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 20px; }
+    .card, .tile, .meta .card, .stat { background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: 22px; }
+    .tile .k, .stat .k { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-size: .68rem; margin-bottom: 8px; }
+    .tile .v { font-size: 1.52rem; font-weight: 800; letter-spacing: -.02em; }
+    .tile .f, .stat .f { color: var(--muted); font-size: .88rem; margin-top: 8px; }
+    .stat .v { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; }
+    .meta b { display: block; margin-bottom: 6px; }
+    .meta span { color: var(--muted); font-size: .9rem; }
+    .callout { padding: 20px 24px; background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--fg); border-radius: 0 4px 4px 0; margin: 20px 0; }
+    .callout.warn { border-left-color: var(--warn); }
+    .callout.good { border-left-color: var(--good); }
+    .callout.blue { border-left-color: var(--blue); }
+    ul.clean { list-style: none; padding: 0; margin: 0; }
+    ul.clean li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    ul.clean li:last-child { border-bottom: none; }
+    ul.clean li::before { content: "▸"; font-weight: 700; flex-shrink: 0; color: var(--gold); }
+    ul.clean li > span { min-width: 0; display: block; }
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+    .badge.good { border-color: var(--good); color: var(--good); }
+    .badge.warn { border-color: var(--warn); color: var(--warn); }
+    .badge.blue { border-color: var(--blue); color: var(--blue); }
+    .quote-line { margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 980px; }
+    .quote-line p { font-size: 1.25rem; font-weight: 600; line-height: 1.5; }
+    .flow { display: grid; gap: 12px; margin-top: 22px; }
+    .flow .node { display: grid; grid-template-columns: 54px minmax(0,1fr); gap: 16px; padding: 18px 20px; background: var(--soft); border: 1px solid var(--line); border-radius: 4px; align-items: start; }
+    .flow .idx { width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--fg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .84rem; }
+    .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+    .cta-row a { text-decoration:none; padding:12px 16px; border:1px solid var(--line); border-radius:999px; background:var(--soft-2); }
+    .cta-row a.primary { border-color:var(--fg); }
+    footer { padding: 54px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 0 18px; }
+      .sidebar { display: none; }
+      .mobile-nav { display: block; }
+      .meta { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      section { padding: 56px 0; }
+      .cover { min-height: auto; padding-top: 34px; }
+    }
+    @media (max-width: 640px) {
+      h1, .program-title { font-size: 2.25rem; }
+      .client-name { font-size: 1.2rem; }
+      .meta { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand-mini">
+      <img src="assets/logo-paulo-jardim.png" alt="Logo Paulo Jardim">
+      <span>Maas · Proposta comercial</span>
+    </div>
+    <ol class="toc" id="toc">
+      <li><a href="#sec-cover">00 · Investimento</a></li>
+      <li><a href="#sec-contexto">01 · Contexto</a></li>
+      <li><a href="#sec-escopo">02 · Escopo</a></li>
+      <li><a href="#sec-sequencia">03 · Sequência</a></li>
+      <li><a href="#sec-investimento">04 · Valor</a></li>
+      <li><a href="#sec-inclui">05 · O que inclui</a></li>
+      <li><a href="#sec-pos">06 · Pós-programa</a></li>
+      <li><a href="#sec-vinculo">07 · Proposta estratégica</a></li>
+      <li><a href="#sec-passos">08 · Próximos passos</a></li>
+    </ol>
+  </aside>
+
+  <main class="main">
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#sec-cover">Investimento</a>
+      <a href="#sec-escopo">Escopo</a>
+      <a href="#sec-investimento">Valor</a>
+      <a href="#sec-inclui">Inclui</a>
+      <a href="#sec-vinculo">Proposta base</a>
+      <a href="#sec-passos">Próximos passos</a>
+    </nav>
+
+    <section id="sec-cover" class="cover">
+      <div class="top">
+        <img class="logo" src="assets/logo-paulo-jardim.png" alt="Logo Paulo Jardim">
+        <div class="brand">PAULO JARDIM<small>SeuTimeIA · PROPOSTA COMERCIAL</small></div>
+      </div>
+      <div class="title-lockup">
+        <div class="eyebrow">Programa corporativo</div>
+        <h1 class="program-title">Proposta Comercial de Investimento</h1>
+        <div class="client-name">Programa Corporativo de Inovação com IA · Maas</div>
+        <p class="subtitle">Escopo comercial estruturado para a Maas, empresa do Grupo HP, com possibilidade de extensão posterior ao grupo a partir de novas condições, prioridades e negociações.</p>
+      </div>
+      <div class="meta">
+        <div class="card"><b>Empresa foco</b><span>Maas, como execução inicial dentro do contexto do Grupo HP.</span></div>
+        <div class="card"><b>Formato comercial</b><span>Programa completo fechado, sem abertura inicial por valor unitário de turma.</span></div>
+        <div class="card"><b>Carga prevista</b><span>4 encontros presenciais de 4 horas, além de alinhamentos online pré e pós-programa.</span></div>
+        <div class="card"><b>Objetivo</b><span>Separar públicos, aumentar aderência e gerar insumos práticos para continuidade posterior.</span></div>
+      </div>
+      <div class="quote-line"><p>Esta proposta comercial consolida o programa completo para a Maas, com trilhas distintas por público e lógica de continuidade opcional após a execução inicial.</p></div>
+    </section>
+
+    <section id="sec-contexto">
+      <div class="eyebrow">01 · Contexto</div>
+      <h2>Como esta proposta foi estruturada</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Base de construção</h3>
+          <p>Esta proposta parte da conversa já estruturada na proposta estratégica do programa, dos alinhamentos com a Maas e da necessidade atual de formalizar um valor objetivo para análise orçamentária interna.</p>
+          <p>O desenho comercial foi mantido em nível de programa completo para preservar clareza de escopo e evitar leitura fragmentada por pessoa ou por turma.</p>
+        </div>
+        <div class="card">
+          <h3>Recorte assumido</h3>
+          <p>O recorte considerado aqui é específico para a <b>Maas</b>, dentro do Grupo HP, com execução em sequência por públicos distintos: operação/tático, liderança e agentes/embaixadores.</p>
+          <p class="callout blue" style="margin:18px 0 0;">A eventual extensão para outras empresas do Grupo HP poderá ser tratada posteriormente, sob novas condições e novo desenho comercial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-escopo">
+      <div class="eyebrow">02 · Escopo</div>
+      <h2>Escopo comercial considerado para a Maas</h2>
+      <div class="tiles">
+        <div class="tile"><div class="k">Trilha 1</div><div class="v">2 turmas</div><div class="f">Tático-operacional, com média esperada de 25 pessoas por turma e encontros em datas distintas.</div></div>
+        <div class="tile"><div class="k">Trilha 2</div><div class="v">1 turma</div><div class="f">Liderança, diretoria, gerência e coordenação, com grupo menor e discussão mais estratégica.</div></div>
+        <div class="tile"><div class="k">Trilha 3</div><div class="v">1 turma</div><div class="f">Agentes e embaixadores, com grupo reduzido e maior complexidade de preparação.</div></div>
+        <div class="tile"><div class="k">Duração</div><div class="v">4h por encontro</div><div class="f">Formato definido para preservar profundidade, dinâmica prática e aderência do público.</div></div>
+      </div>
+      <div class="callout good">Esta proposta considera o fechamento do programa completo para a Maas: <b>4 encontros presenciais de 4 horas</b>, sendo 2 encontros da trilha 1, 1 encontro da trilha 2 e 1 encontro da trilha 3.</div>
+    </section>
+
+    <section id="sec-sequencia">
+      <div class="eyebrow">03 · Sequência sugerida</div>
+      <h2>Ordem de execução recomendada</h2>
+      <div class="flow">
+        <div class="node"><div class="idx">1</div><div><h3>Trilha 1 · Turma A</h3><p>Primeira turma tático-operacional para captar linguagem de rotina, gargalos e oportunidades iniciais.</p></div></div>
+        <div class="node"><div class="idx">2</div><div><h3>Trilha 1 · Turma B</h3><p>Segunda turma tático-operacional, preservando profundidade e melhor dinâmica para o volume total previsto.</p></div></div>
+        <div class="node"><div class="idx">3</div><div><h3>Trilha 2 · Liderança</h3><p>Encontro posterior às turmas operacionais para incorporar leitura prática e aumentar aderência da conversa estratégica.</p></div></div>
+        <div class="node"><div class="idx">4</div><div><h3>Trilha 3 · Agentes e embaixadores</h3><p>Etapa final com participantes-chave, após a leitura dos encontros anteriores e com melhor contexto para aprofundamento.</p></div></div>
+      </div>
+    </section>
+
+    <section id="sec-investimento">
+      <div class="eyebrow">04 · Valor</div>
+      <h2>Investimento proposto para o programa completo</h2>
+      <div class="stats">
+        <div class="stat"><div class="k">Investimento total</div><div class="v">R$ 24.000</div><div class="f">Valor referente ao fechamento do programa completo considerado nesta proposta.</div></div>
+        <div class="stat"><div class="k">Encontros presenciais</div><div class="v">4</div><div class="f">Todos com duração estimada de 4 horas.</div></div>
+        <div class="stat"><div class="k">Alinhamentos online</div><div class="v">Pré + pós</div><div class="f">Suporte de preparação e consolidação do programa.</div></div>
+        <div class="stat"><div class="k">Empresa foco</div><div class="v">Maas</div><div class="f">Extensão ao Grupo HP tratada em negociação posterior.</div></div>
+      </div>
+      <div class="callout warn"><b>Referência comercial:</b> o valor acima foi estruturado considerando o programa como um pacote completo de execução para a Maas, e não como soma explícita de preço por pessoa ou abertura inicial de valor por turma.</div>
+    </section>
+
+    <section id="sec-inclui">
+      <div class="eyebrow">05 · O que inclui</div>
+      <h2>O que está contemplado neste escopo comercial</h2>
+      <div class="grid2">
+        <div class="card">
+          <span class="badge good">Pré-programa</span>
+          <ul class="clean">
+            <li><span>Alinhamento prévio online com a Maas para diretrizes, políticas, pontos de atenção, departamentos e participantes.</span></li>
+            <li><span>Ajuste de formato, local, coffee, infraestrutura e condições operacionais dos encontros.</span></li>
+            <li><span>Validação da pesquisa diagnóstica a ser aplicada antes dos workshops.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge blue">Execução</span>
+          <ul class="clean">
+            <li><span>4 encontros presenciais de 4 horas, conforme sequência proposta para as 3 trilhas.</span></li>
+            <li><span>Adaptação metodológica por público: operação, liderança e agentes/embaixadores.</span></li>
+            <li><span>Aplicação de pesquisa sobre atividades com maior retrabalho, erro, esforço e potencial de ganho com IA.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge warn">Leitura de retorno</span>
+          <ul class="clean">
+            <li><span>Aplicação e leitura de NPS por equipe ou trilha executada.</span></li>
+            <li><span>Escuta de feedbacks para consolidar percepções do programa.</span></li>
+            <li><span>Primeira consolidação dos resultados das pesquisas por público e por contexto observado.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge good">Pós-programa</span>
+          <ul class="clean">
+            <li><span>Alinhamento online posterior para apresentar leitura inicial de NPS, feedbacks e sinais observados.</span></li>
+            <li><span>Consolidação do material como insumo para eventuais desdobramentos posteriores.</span></li>
+            <li><span>Base para discussão de acompanhamento adicional, caso a Maas decida seguir para uma próxima fase.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-pos">
+      <div class="eyebrow">06 · Pós-programa</div>
+      <h2>Resultado esperado após a execução</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Insumos práticos para continuidade</h3>
+          <p>Ao final do programa, a Maas terá uma leitura consolidada de percepções, gargalos e oportunidades trazidas pelos diferentes públicos envolvidos.</p>
+          <p>Isso cria base real para priorização de próximos passos, incluindo eventuais iniciativas de continuidade, reconhecimento interno ou formação de esteira de aplicação.</p>
+        </div>
+        <div class="card">
+          <h3>Captação de ideias após os encontros</h3>
+          <p>A recomendação é abrir uma janela posterior de cadastro de ideias ou iniciativas, para ampliar o aproveitamento do programa.</p>
+          <p>Como referência prática, no caso do Grupo Marajó esse movimento chegou a quase <b>200 ideias</b> registradas após a execução.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-vinculo">
+      <div class="eyebrow">07 · Proposta estratégica</div>
+      <h2>Vínculo com a proposta-base do programa</h2>
+      <div class="card">
+        <p>Esta proposta comercial está vinculada à proposta estratégica já apresentada para o <b>Programa Corporativo de Inovação com IA — Grupo HP</b>, onde estão descritos o racional metodológico, as trilhas, os públicos, a lógica do programa e o posicionamento executivo da iniciativa.</p>
+        <div class="cta-row">
+          <a class="primary" href="./index.html" target="_blank" rel="noopener">Abrir proposta estratégica</a>
+          <a href="https://paulojardimf.github.io/grupo-hp-inovacao-ia/" target="_blank" rel="noopener">Abrir link público da proposta estratégica</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-passos">
+      <div class="eyebrow">08 · Próximos passos</div>
+      <h2>Próximos alinhamentos para avançar</h2>
+      <div class="flow">
+        <div class="node"><div class="idx">1</div><div><h3>Validação interna</h3><p>Confirmação do escopo comercial proposto pela Maas junto às lideranças responsáveis pela decisão orçamentária.</p></div></div>
+        <div class="node"><div class="idx">2</div><div><h3>Definição de datas</h3><p>Alinhamento da sequência das turmas e das janelas prováveis de execução do programa.</p></div></div>
+        <div class="node"><div class="idx">3</div><div><h3>Fechamento operacional</h3><p>Confirmação de local, infraestrutura, coffee, participantes e diretrizes para o alinhamento prévio.</p></div></div>
+        <div class="node"><div class="idx">4</div><div><h3>Desdobramentos futuros</h3><p>Após a execução na Maas, eventual discussão de extensão para outras frentes do Grupo HP poderá ser conduzida em nova etapa.</p></div></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Proposta Comercial de Investimento · Programa Corporativo de Inovação com IA · Maas · Paulo Jardim · SeuTimeIA</p>
+    </footer>
+  </main>
+</div>
+<script>
+  const links = [...document.querySelectorAll('#toc a, #mobile-nav a')];
+  const sections = [...new Set(links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean))];
+  const setActive = () => {
+    let current = sections[0];
+    for (const sec of sections) {
+      if (sec.getBoundingClientRect().top <= 120) current = sec;
+    }
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  };
+  document.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+</script>
+</body>
+</html>
